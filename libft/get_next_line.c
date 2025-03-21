@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 13:57:29 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/11 14:13:59 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/21 14:06:35 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char	*read_from_file(int fd, char *res)
 			return (NULL);
 		}
 		buf[rb] = '\0';
-		res = gnl_strjoin(res, buf);
+		res = ft_strjoin(res, buf);
 	}
 	if (rb < 0)
 		free(res);

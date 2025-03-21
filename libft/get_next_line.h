@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 13:57:34 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/11 14:13:36 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/21 14:06:53 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,5 @@
 # endif
 
 char	*get_next_line(int fd);
-char	*gnl_strjoin(char *s1, char *s2);
 
 #endif
