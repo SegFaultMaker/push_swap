@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   get_arr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 12:45:48 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/19 16:34:45 by nasargsy         ###   ########.fr       */
+/*   Created: 2025/03/21 12:21:04 by nasargsy          #+#    #+#             */
+/*   Updated: 2025/03/21 12:47:24 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	main(int argc, char **argv)
+int	*get_arr(char **argv, int argc)
 {
-	int		*arr;
-	t_stack	*a;
-	t_Stack	*b;
+	int		i;
+	int		*res;
+	char	**buffer;
 
-	if (argc < 2)
-		quit_with_error();
-	arr = get_arr(argv, argc);
-	if (!arr)
-		quit_with_error();
+	i = 1;
+	while (i < argc)
+	{
+		buffer = ft_split(argv[i], ' ');
+		if (check_arg(buffer) == -1)
+		{
+			clean_buffer(&buffer);
+			return (0);
+		}
+		res = fill_res(buffer, &res);
+		clean_buffer(&buffer);
+		i++;
+	}
+	res[i]
 }

@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 13:50:19 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/19 14:46:17 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:44:49 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int	ft_putnbr_unsigned(unsigned int nb)
 	}
 	size += ft_putchar(nb + 48);
 	return (size);
-
 }
 
 int	ft_putnbr_hex(unsigned int nb, char format)
@@ -78,5 +77,4 @@ int	ft_putnbr_hex(unsigned int nb, char format)
 	else
 		size += ft_putchar(nb + 48);
 	return (size);
-
 }
