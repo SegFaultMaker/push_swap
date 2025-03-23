@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:44:37 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/22 15:29:30 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/23 11:54:26 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,7 @@
 # include <error.h>
 # include "../libft/libft.h"
 
-typedef struct stack_list
-{
-	void	*data;
-	void	*next;
-}	t_stack;
-
 int		get_arr(int **res, char **argv, int argc);
 void	heap_sort(int *arr, int n);
+
 #endif
