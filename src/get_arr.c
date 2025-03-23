@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:18:42 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/22 12:07:10 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/23 17:24:26 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,12 @@ static int	check_args(char **argv, int argc)
 			if (argv[i][j] == '-' && argv[i][j - 1] == ' ')
 				j++;
 			if (!ft_isdigit(argv[i][j]))
-				return (-1);
+				quit_with_error();
 			j++;
 		}
 		i++;
 	}
-	return (i);
+	return (1);
 }
 
 static int	*fill_res(char **argv, int argc, int size)
@@ -82,6 +82,8 @@ static int	*fill_res(char **argv, int argc, int size)
 	char	**buffer;
 
 	temp = malloc(sizeof(int) * size);
+	if (!temp)
+		return (NULL);
 	i = 0;
 	while (argc > 1)
 	{
@@ -104,8 +106,7 @@ int	get_arr(int **res, char **argv, int argc)
 	int		i;
 	int		size;
 
-	if (check_args(argv, argc) == -1)
-		return (0);
+	check_args(argv, argc);
 	size = 0;
 	i = 1;
 	while (i < argc)
@@ -114,5 +115,7 @@ int	get_arr(int **res, char **argv, int argc)
 		++i;
 	}
 	*res = fill_res(argv, argc, size);
+	if (!*res)
+		return (0);
 	return (size);
 }

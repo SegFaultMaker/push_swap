@@ -5,7 +5,7 @@ SOURCES = ./src/push_swap.c ./src/get_arr.c ./src/heap_sort.c
 OBJECTS = $(SOURCES:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 all: $(LIBFT) $(NAME)
 
