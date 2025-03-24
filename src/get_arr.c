@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:18:42 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/23 18:12:31 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/24 16:41:54 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ static int	*fill_res(char **argv, int argc, int size)
 {
 	int		i;
 	int		j;
+	int		k;
 	int		*temp;
 	char	**buffer;
 
@@ -85,19 +86,17 @@ static int	*fill_res(char **argv, int argc, int size)
 	if (!temp)
 		return (NULL);
 	i = 0;
-	while (argc > 1)
+	k = 1;
+	while (k < argc)
 	{
-		buffer = ft_split(argv[argc - 1], ' ');
+		buffer = ft_split(argv[k], ' ');
 		if (!buffer)
-		{
-			free(temp);
-			quit_with_error();
-		}
+			break ;
 		j = 0;
 		while (buffer[j] != NULL)
 			temp[i++] = ft_atoi(buffer[j++]);
 		clean_buffer(&buffer);
-		--argc;
+		++k;
 	}
 	return (temp);
 }

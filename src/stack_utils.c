@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 11:49:05 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/24 13:59:12 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/24 16:26:48 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,20 @@ static t_stack	*stack_new(int num)
 	return (node);
 }
 
-void	stack_clear_a(t_stack **lst)
+void	stack_add_front(t_stack **lst, t_stack *new)
+{
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+		*lst = new;
+	else
+	{
+		new->next = *lst;
+		*lst = new;
+	}
+}
+
+void	stack_clear(t_stack **lst)
 {
 	t_stack	*temp;
 	t_stack	*next;
@@ -42,27 +55,27 @@ void	stack_clear_a(t_stack **lst)
 	*lst = NULL;
 }
 
-t_stack	*fill_stack(int *arr, int size)
+t_stack	*fill_stack_a(int *arr, int size)
 {
 	int		i;
 	t_stack	*stack;
 	t_stack	*temp;
 
-	stack = stack_new(arr[size - 1]);
+	stack = stack_new(arr[0]);
 	temp = stack;
-	i = size - 2;
-	while (i >= 0)
+	i = 1;
+	while (i < size)
 	{
 		stack->next = stack_new(arr[i]);
 		stack = stack->next;
-		i--;
+		i++;
 	}
 	stack = temp;
 	temp = NULL;
 	return (stack);
 }
 
-t_stack	*fill_stack_b(it_stack *a, nt *arr, int size)
-{
-	
-}
+//t_stack	*fill_stack_b(t_stack *a, int *arr, int size)
+//{
+//	
+//}
