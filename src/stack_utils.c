@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 11:49:05 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/24 16:26:48 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/25 14:00:14 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ t_stack	*fill_stack_a(int *arr, int size)
 	return (stack);
 }
 
-//t_stack	*fill_stack_b(t_stack *a, int *arr, int size)
-//{
-//	
-//}
+t_stack	*fill_stack_b(t_stack *a, int *arr, int size)
+{
+	
+}

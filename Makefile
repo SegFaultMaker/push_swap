@@ -1,8 +1,8 @@
 NAME = push_swap
 BONUS = push_swap
 LIBFT = libft.a
-SOURCES = ./src/push_swap.c ./src/get_arr.c ./src/heap_sort.c ./src/utils.c \
-		  ./src/stack_utils.c
+SOURCES = ./src/push_swap.c ./src/get_arr.c ./src/utils.c \
+		  ./src/stack_utils.c ./src/instructions.c
 OBJECTS = $(SOURCES:.c=.o)
 
 CC = cc

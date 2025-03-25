@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:18:42 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/24 17:57:48 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/25 13:56:49 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,13 @@ void	swap(t_stack **stack)
 void	push(t_stack **first, t_stack **second)
 {
 	t_stack	*temp;
-	if (!(*first))
+
+	if (*first == NULL)
 		return ;
-	else
-	{
-		stack_add_front(second, *first);
-		temp = (*first)->next;
-		free(*first);
-		*first = temp;
-	}
+	temp = (*first)->next;
+	(*first)->next = *second;
+	*second = *first;
+	*first = temp;
 }
 
 void	rotate(t_stack **stack)
