@@ -6,13 +6,13 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 11:49:05 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/25 14:00:14 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/26 16:36:10 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static t_stack	*stack_new(int num)
+t_stack	*stack_new(int num)
 {
 	t_stack	*node;
 
@@ -55,27 +55,11 @@ void	stack_clear(t_stack **lst)
 	*lst = NULL;
 }
 
-t_stack	*fill_stack_a(int *arr, int size)
+t_stack	*stack_last(t_stack *stack)
 {
-	int		i;
-	t_stack	*stack;
-	t_stack	*temp;
-
-	stack = stack_new(arr[0]);
-	temp = stack;
-	i = 1;
-	while (i < size)
-	{
-		stack->next = stack_new(arr[i]);
+	if (!stack)
+		return (NULL);
+	while (stack->next != NULL)
 		stack = stack->next;
-		i++;
-	}
-	stack = temp;
-	temp = NULL;
 	return (stack);
-}
-
-t_stack	*fill_stack_b(t_stack *a, int *arr, int size)
-{
-	
 }

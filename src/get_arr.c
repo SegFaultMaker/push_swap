@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:18:42 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/24 16:41:54 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/26 16:32:22 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,6 @@ int	get_arr(int **res, char **argv, int argc)
 	}
 	*res = fill_res(argv, argc, size);
 	if (!*res)
-		return (0);
+		quit_with_error();
 	return (size);
 }

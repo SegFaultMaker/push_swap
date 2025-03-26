@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:18:42 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/25 13:56:49 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/26 17:05:41 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,14 @@ void	rotate(t_stack **stack)
 
 void	reverse_rotate(t_stack **stack)
 {
-	t_stack	*temp_node;
-	int		prev_num;
-	int		temp;
+	t_stack	*temp;
 
-	temp_node = *stack;
-	prev_num = (*stack)->num;
-	*stack = (*stack)->next;
-	while ((*stack))
-	{
-		temp = (*stack)->num;
-		(*stack)->num = prev_num;
-		prev_num = temp;
-		*stack = (*stack)->next;
-	}
-	*stack = temp_node;
-	(*stack)->num = prev_num;
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
+	temp = *stack;
+	while (temp->next->next != NULL)
+		temp = temp->next;
+	temp->next->next = *stack;
+	*stack = temp->next;
+	temp->next = NULL;
 }
