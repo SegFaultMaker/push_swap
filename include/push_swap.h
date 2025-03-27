@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:44:37 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/26 16:48:55 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/27 20:36:49 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_stack
 
 void	quit_with_error(void);
 void	check_arr(int **arr, int size);
+int		ft_sqrt(int nb);
 int		get_arr(int **res, char **argv, int argc);
 int		*get_order(int **res, int **arr, int size);
 void	stack_clear(t_stack **lst);

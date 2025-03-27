@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/26 16:24:09 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/26 16:35:34 by nasargsy         ###   ########.fr       */
-/*                                                                            */
+/*																			  */
+/*														  :::	   ::::::::   */
+/*	 utils.c											:+:		 :+:	:+:   */
+/*													  +:+ +:+		  +:+	  */
+/*	 By: nasargsy <marvin@42.fr>					+#+  +:+	   +#+		  */
+/*												  +#+#+#+#+#+	+#+			  */
+/*	 Created: 2025/03/26 16:24:09 by nasargsy		   #+#	  #+#			  */
+/*	 Updated: 2025/03/27 20:36:24 by nasargsy		  ###	########.fr		  */
+/*																			  */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
@@ -38,4 +38,18 @@ void	check_arr(int **arr, int size)
 		}
 		i++;
 	}
+}
+
+int	ft_sqrt(int nb)
+{
+	int	sqrt;
+
+	if (nb < 0)
+		return (0);
+	sqrt = 1;
+	while (sqrt * sqrt < nb)
+		++sqrt;
+	if (sqrt * sqrt == nb)
+		return (sqrt);
+	return (0);
 }
