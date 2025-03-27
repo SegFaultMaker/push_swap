@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:45:48 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/26 18:31:26 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/27 14:31:11 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	fill_stack_b(t_stack **b, t_stack **a, int size)
 			ft_printf("pb\nrb\n");
 			i++;
 		}
-		else if (((*a)->num) <= i + 1)
+		else if (((*a)->num) <= i + (size / 3))
 		{
 			push(a, b);
 			ft_printf("pb\n");
