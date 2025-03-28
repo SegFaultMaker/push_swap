@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:45:48 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/27 20:52:18 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/28 13:18:03 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	fill_stack_b(t_stack **b, t_stack **a, int size)
 			ft_printf("pb\nrb\n");
 			i++;
 		}
-		else if (((*a)->num) <= i + (int)(ft_sqrt(size) * 1.5))
+		else if (((*a)->num) <= (i + (int)(ft_sqrt(size) * 3 / 2)))
 		{
 			push(a, b);
 			ft_printf("pb\n");
@@ -60,7 +60,7 @@ void	fill_stack_b(t_stack **b, t_stack **a, int size)
 void	sort_stack(t_stack **a, t_stack **b, int size)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < size)
 	{
@@ -79,7 +79,6 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_stack *temp;
 	int		*arr;
 	int		*order;
 	int		size;
@@ -89,31 +88,15 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	size = get_arr(&arr, argv, argc);
-	check_arr(&arr, size);
+	if (check_arr(arr, size) == 1)
+	{
+		free(arr);
+		return (0);
+	}
 	get_order(&order, &arr, size);
 	fill_stack_a(&a, order, size);
 	fill_stack_b(&b, &a, size);
-	
-	ft_printf("==========\n");
-	temp = b;
-	while (b)
-	{
-		ft_printf("%d\n", b->num);
-		b = b->next;
-	}
-	b = temp;
-	ft_printf("\n\n");
-	
 	sort_stack(&a, &b, size);
-	ft_printf("==========\n");
-	temp = a;
-	while (a)
-	{
-		ft_printf("%d\n", a->num);
-		a = a->next;
-	}
-	a = temp;
-	
 	free(arr);
 	free(order);
 	stack_clear(&a);

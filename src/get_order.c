@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 11:52:29 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/26 16:40:12 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/28 13:10:38 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static int	*fill_order(int *arr, int *sorted, int size)
 	while (i < size)
 	{
 		j = 0;
-		while (arr[j] != sorted[i])
+		while (arr[i] != sorted[j])
 			j++;
 		order[i] = j;
 		i++;
@@ -93,6 +93,10 @@ int	*get_order(int **res, int **arr, int size)
 		i++;
 	}
 	heap_sort(sorted, size);
+	for (int i = 0; i < size; i++)
+		ft_printf("%d\n", sorted[i]);
+	ft_printf("=====\n");
+	
 	*res = fill_order(*arr, sorted, size);
 	if (!*res)
 	{
