@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 12:02:07 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/28 12:20:28 by nasargsy         ###   ########.fr       */
-/*                                                                            */
+/*																			  */
+/*														  :::	   ::::::::   */
+/*	 utils.c											:+:		 :+:	:+:   */
+/*													  +:+ +:+		  +:+	  */
+/*	 By: nasargsy <marvin@42.fr>					+#+  +:+	   +#+		  */
+/*												  +#+#+#+#+#+	+#+			  */
+/*	 Created: 2025/03/28 12:02:07 by nasargsy		   #+#	  #+#			  */
+/*	 Updated: 2025/03/28 19:41:45 by nasargsy		  ###	########.fr		  */
+/*																			  */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
@@ -18,31 +18,57 @@ void	quit_with_error(void)
 	exit(1);
 }
 
-int	ft_sqrt(int nb)
+int	check_doubles(int *arr, int size)
 {
-	int	sqrt;
+	int	i;
+	int	j;
 
-	if (nb < 0)
-		return (0);
-	sqrt = 1;
-	while (sqrt * sqrt < nb)
-		++sqrt;
-	if (sqrt * sqrt == nb)
-		return (sqrt);
+	i = 0;
+	while (i < size - 1)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (arr[i] == arr[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
 	return (0);
 }
 
-int	check_arr(int *arr, int size)
+int check_arr(int *arr, int size)
 {
 	int	i;
 
-	i = 1;
-	while (i < size)
+	i = 0;
+	if (check_doubles(*arr, size))
+		return (1);
+	while (i < size - 1)
 	{
-		if (arr[i - 1] < arr[i])
-			i++;
-		else
+		if ((*arr)[i] > (*arr)[i + 1])
 			return (0);
+		i++;
 	}
+	free(*arr);
 	return (1);
+}
+
+int	generate_chunk(int size)
+{
+	int	chunk;
+
+	chunk = 1;
+	if (size < 50)
+		chunk = 3 + (size - 6) / 7;
+	else if (size >= 50 && size < 100)
+		chunk = 10 + (size - 50) / 8;
+	else if (size >= 100 && size < 350)
+		chunk = 18 + (size - 100) / 9;
+	else if (size >= 350 && size <= 500)
+		chunk = 27 + (size - 350) / 15;
+	else if (size > 500)
+		chunk = 37 + (size - 500) / 20;
+	return (chunk);
 }

@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 12:45:48 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/28 14:39:58 by nasargsy         ###   ########.fr       */
-/*                                                                            */
+/*																			  */
+/*														  :::	   ::::::::   */
+/*	 push_swap.c										:+:		 :+:	:+:   */
+/*													  +:+ +:+		  +:+	  */
+/*	 By: nasargsy <marvin@42.fr>					+#+  +:+	   +#+		  */
+/*												  +#+#+#+#+#+	+#+			  */
+/*	 Created: 2025/03/19 12:45:48 by nasargsy		   #+#	  #+#			  */
+/*	 Updated: 2025/03/28 19:08:12 by nasargsy		  ###	########.fr		  */
+/*																			  */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
@@ -32,8 +32,10 @@ void	fill_stack_a(t_stack **stack, int *arr, int size)
 void	fill_stack_b(t_stack **b, t_stack **a, int size)
 {
 	int		i;
+	int		chunk;
 
 	i = 0;
+	chunk = generate_chunk(size);
 	while (i < size)
 	{
 		if (((*a)->num) <= i)
@@ -43,7 +45,7 @@ void	fill_stack_b(t_stack **b, t_stack **a, int size)
 			ft_printf("pb\nrb\n");
 			i++;
 		}
-		else if (((*a)->num) <= (i + (int)(ft_sqrt(size) * 3 / 2)))
+		else if (((*a)->num) <= (i + chunk))
 		{
 			push(a, b);
 			ft_printf("pb\n");
@@ -83,7 +85,7 @@ void	sort_stack(t_stack **a, t_stack **b, int size)
 			}
 		}
 		push(b, a);
-		ft_printf("pb\n");
+		ft_printf("pa\n");
 		size--;
 	}
 }
@@ -101,11 +103,8 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	size = get_arr(&arr, argv, argc);
-	if (check_arr(arr, size) == 1)
-	{
-		free(arr);
+	if (check_arr(&arr, size) == 1)
 		return (0);
-	}
 	get_order(&order, &arr, size);
 	fill_stack_a(&a, order, size);
 	fill_stack_b(&b, &a, size);
