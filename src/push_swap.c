@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:45:48 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/28 13:18:03 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/28 14:39:58 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,32 @@ void	fill_stack_b(t_stack **b, t_stack **a, int size)
 
 void	sort_stack(t_stack **a, t_stack **b, int size)
 {
-	int	i;
+	int	max_idx;
 
-	i = 0;
-	while (i < size)
+	while (size > 0)
 	{
-		if ((*b)->num < ((stack_last(*b))->num))
+		max_idx = get_max_index(*b);
+		if (max_idx <= size / 2)
 		{
-			reverse_rotate(b);
-			ft_printf("rrb\n");
+			while (max_idx)
+			{
+				rotate(b);
+				ft_printf("rb\n");
+				max_idx--;
+			}
+		}
+		else
+		{
+			while (max_idx < size)
+			{
+				reverse_rotate(b);
+				ft_printf("rrb\n");
+				max_idx++;
+			}
 		}
 		push(b, a);
 		ft_printf("pb\n");
-		i++;
+		size--;
 	}
 }
 
