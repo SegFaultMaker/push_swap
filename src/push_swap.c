@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 12:13:17 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/29 12:38:13 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/29 19:11:47 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,12 @@ int	main(int argc, char **argv)
 		return (0);
 	get_order(&order, &arr, size);
 	fill_stack_a(&a, order, size);
-	fill_stack_b(&b, &a, size);
-	sort_stack(&a, &b, size);
-	free(arr);
-	free(order);
-	stack_clear(&a);
-	stack_clear(&b);
+	if (size < 12)
+		hardcode_sort(&a, size);
+	else
+	{
+		fill_stack_b(&b, &a, size);
+		sort_stack(&a, &b, size);
+	}
+	clean_all(&arr, &order, &a, &b);
 }

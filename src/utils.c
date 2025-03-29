@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 12:13:02 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/29 12:21:19 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/29 13:50:08 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,14 @@ int	generate_chunk(int size)
 	else if (size > 500)
 		chunk = 37 + (size - 500) / 20;
 	return (chunk);
+}
+
+void	clean_all(int **arr, int **order, t_stack **a, t_stack **b)
+{
+	free(arr);
+	free(order);
+	if (*a)
+		stack_clear(a);
+	if (*b)
+		stack_clear(b);
 }
