@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:44:37 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/28 20:33:05 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/29 12:23:06 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <error.h>
+# include <limits.h>
 # include "../libft/libft.h"
 
 typedef struct s_stack

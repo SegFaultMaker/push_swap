@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 11:49:05 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/28 14:25:58 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/29 12:12:46 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_stack	*stack_last(t_stack *stack)
 	return (stack);
 }
 
-int		get_max_index(t_stack *stack)
+int	get_max_index(t_stack *stack)
 {
 	int		max_idx;
 	int		num;

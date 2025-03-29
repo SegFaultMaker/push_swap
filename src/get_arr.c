@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:18:42 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/26 18:41:20 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/29 12:25:48 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,9 @@ static int	check_args(char **argv, int argc)
 			if (argv[i][j] == '-' && argv[i][j - 1] == ' ')
 				j++;
 			if (!ft_isdigit(argv[i][j]))
+				quit_with_error();
+			if (argv[i][j] == '0' && argv[i][j - 1] == ' '
+					&& argv[i][j + 1] != ' ')
 				quit_with_error();
 			j++;
 		}

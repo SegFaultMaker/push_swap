@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			  */
-/*														  :::	   ::::::::   */
-/*	 push_swap.c										:+:		 :+:	:+:   */
-/*													  +:+ +:+		  +:+	  */
-/*	 By: nasargsy <marvin@42.fr>					+#+  +:+	   +#+		  */
-/*												  +#+#+#+#+#+	+#+			  */
-/*	 Created: 2025/03/19 12:45:48 by nasargsy		   #+#	  #+#			  */
-/*	 Updated: 2025/03/28 19:08:12 by nasargsy		  ###	########.fr		  */
-/*																			  */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/29 12:13:17 by nasargsy          #+#    #+#             */
+/*   Updated: 2025/03/29 12:38:13 by nasargsy         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
@@ -32,10 +32,8 @@ void	fill_stack_a(t_stack **stack, int *arr, int size)
 void	fill_stack_b(t_stack **b, t_stack **a, int size)
 {
 	int		i;
-	int		chunk;
 
 	i = 0;
-	chunk = generate_chunk(size);
 	while (i < size)
 	{
 		if (((*a)->num) <= i)
@@ -45,7 +43,7 @@ void	fill_stack_b(t_stack **b, t_stack **a, int size)
 			ft_printf("pb\nrb\n");
 			i++;
 		}
-		else if (((*a)->num) <= (i + chunk))
+		else if (((*a)->num) <= (i + generate_chunk(size)))
 		{
 			push(a, b);
 			ft_printf("pb\n");
@@ -68,20 +66,18 @@ void	sort_stack(t_stack **a, t_stack **b, int size)
 		max_idx = get_max_index(*b);
 		if (max_idx <= size / 2)
 		{
-			while (max_idx)
+			while (max_idx--)
 			{
 				rotate(b);
 				ft_printf("rb\n");
-				max_idx--;
 			}
 		}
 		else
 		{
-			while (max_idx < size)
+			while (max_idx++ < size)
 			{
 				reverse_rotate(b);
 				ft_printf("rrb\n");
-				max_idx++;
 			}
 		}
 		push(b, a);

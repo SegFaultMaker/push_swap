@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			  */
-/*														  :::	   ::::::::   */
-/*	 utils.c											:+:		 :+:	:+:   */
-/*													  +:+ +:+		  +:+	  */
-/*	 By: nasargsy <marvin@42.fr>					+#+  +:+	   +#+		  */
-/*												  +#+#+#+#+#+	+#+			  */
-/*	 Created: 2025/03/28 12:02:07 by nasargsy		   #+#	  #+#			  */
-/*	 Updated: 2025/03/28 19:41:45 by nasargsy		  ###	########.fr		  */
-/*																			  */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/29 12:13:02 by nasargsy          #+#    #+#             */
+/*   Updated: 2025/03/29 12:21:19 by nasargsy         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
@@ -38,13 +38,16 @@ int	check_doubles(int *arr, int size)
 	return (0);
 }
 
-int check_arr(int *arr, int size)
+int	check_arr(int **arr, int size)
 {
 	int	i;
 
 	i = 0;
 	if (check_doubles(*arr, size))
-		return (1);
+	{
+		free(*arr);
+		quit_with_error();
+	}
 	while (i < size - 1)
 	{
 		if ((*arr)[i] > (*arr)[i + 1])
