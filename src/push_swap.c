@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 12:13:17 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/29 19:11:47 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/30 14:38:30 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,17 @@ void	fill_stack_b(t_stack **b, t_stack **a, int size)
 	{
 		if (((*a)->num) <= i)
 		{
-			push(a, b);
-			rotate(b);
-			ft_printf("pb\nrb\n");
+			push(a, b, 'b');
+			rotate(b, 'b');
 			i++;
 		}
 		else if (((*a)->num) <= (i + generate_chunk(size)))
 		{
-			push(a, b);
-			ft_printf("pb\n");
+			push(a, b, 'b');
 			i++;
 		}
 		else
-		{
-			rotate(a);
-			ft_printf("ra\n");
-		}
+			rotate(a, 'a');
 	}
 }
 
@@ -67,21 +62,14 @@ void	sort_stack(t_stack **a, t_stack **b, int size)
 		if (max_idx <= size / 2)
 		{
 			while (max_idx--)
-			{
-				rotate(b);
-				ft_printf("rb\n");
-			}
+				rotate(b, 'b');
 		}
 		else
 		{
 			while (max_idx++ < size)
-			{
-				reverse_rotate(b);
-				ft_printf("rrb\n");
-			}
+				reverse_rotate(b, 'b');
 		}
-		push(b, a);
-		ft_printf("pa\n");
+		push(b, a, 'a');
 		size--;
 	}
 }
@@ -100,11 +88,11 @@ int	main(int argc, char **argv)
 	b = NULL;
 	size = get_arr(&arr, argv, argc);
 	if (check_arr(&arr, size) == 1)
-		return (0);
+		return (1);
 	get_order(&order, &arr, size);
 	fill_stack_a(&a, order, size);
 	if (size < 12)
-		hardcode_sort(&a, size);
+		hardcode_sort(&a, &b, size);
 	else
 	{
 		fill_stack_b(&b, &a, size);

@@ -6,13 +6,13 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:18:42 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/26 17:05:41 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/30 14:29:30 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	swap(t_stack **stack)
+void	swap(t_stack **stack, char c)
 {
 	int	temp;
 
@@ -21,9 +21,10 @@ void	swap(t_stack **stack)
 	temp = (*stack)->next->num;
 	(*stack)->next->num = (*stack)->num;
 	(*stack)->num = temp;
+	ft_printf("s%c\n", c);
 }
 
-void	push(t_stack **first, t_stack **second)
+void	push(t_stack **first, t_stack **second, char c)
 {
 	t_stack	*temp;
 
@@ -33,9 +34,10 @@ void	push(t_stack **first, t_stack **second)
 	(*first)->next = *second;
 	*second = *first;
 	*first = temp;
+	ft_printf("p%c\n", c);
 }
 
-void	rotate(t_stack **stack)
+void	rotate(t_stack **stack, char c)
 {
 	int		first_num;
 	t_stack	*temp;
@@ -49,9 +51,10 @@ void	rotate(t_stack **stack)
 	}
 	(*stack)->num = first_num;
 	*stack = temp;
+	ft_printf("r%c\n", c);
 }
 
-void	reverse_rotate(t_stack **stack)
+void	reverse_rotate(t_stack **stack, char c)
 {
 	t_stack	*temp;
 
@@ -63,4 +66,5 @@ void	reverse_rotate(t_stack **stack)
 	temp->next->next = *stack;
 	*stack = temp->next;
 	temp->next = NULL;
+	ft_printf("rr%c\n", c);
 }

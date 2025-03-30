@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 12:13:02 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/29 13:50:08 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/29 20:06:36 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ int	generate_chunk(int size)
 
 void	clean_all(int **arr, int **order, t_stack **a, t_stack **b)
 {
-	free(arr);
-	free(order);
+	free(*arr);
+	free(*order);
 	if (*a)
 		stack_clear(a);
 	if (*b)
