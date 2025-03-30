@@ -6,11 +6,11 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 12:13:02 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/30 15:35:47 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/03/30 16:16:50 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/checker.h"
 
 void	quit_with_error(void)
 {
@@ -58,28 +58,9 @@ int	check_arr(int **arr, int size)
 	return (1);
 }
 
-int	generate_chunk(int size)
-{
-	int	chunk;
-
-	chunk = 1;
-	if (size < 50)
-		chunk = 3 + (size - 6) / 7;
-	else if (size >= 50 && size < 100)
-		chunk = 10 + (size - 50) / 8;
-	else if (size >= 100 && size < 350)
-		chunk = 18 + (size - 100) / 9;
-	else if (size >= 350 && size <= 500)
-		chunk = 27 + (size - 350) / 15;
-	else if (size > 500)
-		chunk = 37 + (size - 500) / 20;
-	return (chunk);
-}
-
-void	clean_all(int **arr, int **order, t_stack **a, t_stack **b)
+void	clean_all(int **arr, t_stack **a, t_stack **b)
 {
 	free(*arr);
-	free(*order);
 	if (*a)
 		stack_clear(a);
 	if (*b)
