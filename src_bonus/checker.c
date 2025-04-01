@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 15:37:37 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/04/01 11:06:21 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:50:10 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ static int	do_operations(t_stack **a, t_stack **b)
 		free(op);
 		op = get_next_line(0);
 	}
-	free(op);
+	if (op)
+		free(op);
 	if (check_stacks(*a, *b) == 0)
 		return (0);
 	return (1);

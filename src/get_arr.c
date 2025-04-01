@@ -6,13 +6,13 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:18:42 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/04/01 12:09:43 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:48:00 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
- void	clean_buffer(char ***buffer)
+void	clean_buffer(char ***buffer)
 {
 	int	i;
 
