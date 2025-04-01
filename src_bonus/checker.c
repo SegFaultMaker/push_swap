@@ -6,7 +6,7 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 15:37:37 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/30 19:10:39 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/04/01 11:06:21 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,7 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	size = get_arr(&arr, argv, argc);
-	if (check_arr(&arr, size) == 1)
-		ft_printf("OK\n");
+	check_arr(&arr, size);
 	fill_stack_a(&a, arr, size);
 	stat = do_operations(&a, &b);
 	if (stat == 0)

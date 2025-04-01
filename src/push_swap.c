@@ -6,11 +6,17 @@
 /*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 12:13:17 by nasargsy          #+#    #+#             */
-/*   Updated: 2025/03/30 17:37:12 by nasargsy         ###   ########.fr       */
+/*   Updated: 2025/04/01 11:12:24 by nasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	quit_with_error(void)
+{
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
+}
 
 void	fill_stack_a(t_stack **stack, int *arr, int size)
 {

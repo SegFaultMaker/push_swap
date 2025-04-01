@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			  */
-/*														  :::	   ::::::::   */
-/*	 hardcode.c											:+:		 :+:	:+:   */
-/*													  +:+ +:+		  +:+	  */
-/*	 By: nasargsy <marvin@42.fr>					+#+  +:+	   +#+		  */
-/*												  +#+#+#+#+#+	+#+			  */
-/*	 Created: 2025/03/29 19:08:59 by nasargsy		   #+#	  #+#			  */
-/*	 Updated: 2025/03/30 14:38:53 by nasargsy		  ###	########.fr		  */
-/*																			  */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hardcode.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nasargsy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/01 11:10:13 by nasargsy          #+#    #+#             */
+/*   Updated: 2025/04/01 11:10:22 by nasargsy         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
@@ -79,7 +79,6 @@ static void	fill_until_three(t_stack **a, t_stack **b, int size)
 		push(a, b, 'b');
 		size--;
 	}
-
 }
 
 void	hardcode_sort(t_stack **a, t_stack **b, int size)

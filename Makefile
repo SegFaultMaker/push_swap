@@ -3,7 +3,7 @@ BONUS = checker
 LIBFT = libft.a
 SOURCES = ./src/push_swap.c ./src/get_arr.c ./src/get_order.c \
 		  ./src/utils.c ./src/stack_utils.c ./src/instructions.c \
-		  ./src/hardcode.c
+		  ./src/validation.c ./src/hardcode.c
 BSOURCES = ./src_bonus/checker.c ./src_bonus/get_arr.c ./src_bonus/instructions.c \
 		   ./src_bonus/utils.c ./src_bonus/stack_utils.c
 
